@@ -1,6 +1,3 @@
-# Serve index.php automatically
-DirectoryIndex index.php
-
 # Prevent directory listing
 Options -Indexes
 
@@ -9,6 +6,9 @@ Options -Indexes
     RewriteEngine On
     RewriteRule ^auth\.php$ - [F,L]
     RewriteRule ^data/ - [F,L]
+
+    # Serve index.php for root URL
+    RewriteRule ^$ index.php [L]
 </IfModule>
 
 # Protect data directory (redundant, belt-and-suspenders)
