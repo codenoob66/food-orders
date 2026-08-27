@@ -1,3 +1,6 @@
+# Serve index.php automatically
+DirectoryIndex index.php
+
 # Prevent directory listing
 Options -Indexes
 
