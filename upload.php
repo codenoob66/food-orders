@@ -9,30 +9,48 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($user === '' || !isset($_FILES['myFile']) || $_FILES['myFile']['error'] !== UPLOAD_ERR_OK) {
         $status = 'error';
         $message = "Please provide your name and select a file.";
-        // Skip to rendering the result page
+        goto render;
+    }
+
+    // 3. Validate file size (3MB max)
+    $maxSize = 3 * 1024 * 1024; // 3MB in bytes
+    if ($_FILES['myFile']['size'] > $maxSize) {
+        $status = 'error';
+        $message = "File is too large. Maximum size is 3MB.";
+        goto render;
+    }
+
+    // 4. Validate file type (images only)
+    $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+    $finfo = finfo_open(FILEINFO_MIME_TYPE);
+    $mimeType = finfo_file($finfo, $_FILES['myFile']['tmp_name']);
+    finfo_close($finfo);
+    if (!in_array($mimeType, $allowedTypes)) {
+        $status = 'error';
+        $message = "Only JPG, PNG, GIF, and WebP images are allowed.";
         goto render;
     }
 
     $user = ucfirst($user);
 
-    // 4. Sanitize the filename
+    // 5. Sanitize the filename
     $originalName = basename($_FILES['myFile']['name']);
     $fileExtension = strtolower(pathinfo($originalName, PATHINFO_EXTENSION));
 
-    // 5. Block executable PHP files
+    // 6. Block executable PHP files
     if ($fileExtension === 'php') {
         die("Error: Uploading PHP files is forbidden for security reasons.");
     }
 
-    // 6. Generate unique filename: Name_timestamp.ext
+    // 7. Generate unique filename: Name_timestamp.ext
     $timestamp = date('Ymd_His');
     $safeName = preg_replace('/[^a-zA-Z0-9]/', '', $user);
     $newFileName = "{$safeName}_{$timestamp}.{$fileExtension}";
     $targetFile = $rootDirectory . $newFileName;
 
-    // 7. Move the uploaded file
+    // 8. Move the uploaded file
     if (move_uploaded_file($_FILES['myFile']['tmp_name'], $targetFile)) {
-        // 8. Log the upload to JSON
+        // 9. Log the upload to JSON
         $uploads = file_exists($uploadsLog) ? json_decode(file_get_contents($uploadsLog), true) : [];
         $uploads[] = [
             'name' => $user,
