@@ -1,7 +1,7 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // 1. Define paths
-    $rootDirectory = $_SERVER['DOCUMENT_ROOT'] . '/pay-food/upload/';
+    $rootDirectory = __DIR__ . '/upload/';
     $uploadsLog = __DIR__ . '/data/uploads.json';
     $user = trim($_POST['name'] ?? '');
 
