@@ -2,20 +2,16 @@
 Options -Indexes
 
 # Block direct access to auth.php (still works via require_once)
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteRule ^auth\.php$ - [F,L]
-    RewriteRule ^data/ - [F,L]
-
-    # Serve index.php for root URL
-    RewriteRule ^$ index.php [L]
-</IfModule>
-
-# Protect data directory (redundant, belt-and-suspenders)
 <Files "auth.php">
     Order deny,allow
     Deny from all
 </Files>
+
+# Block direct access to JSON data files
+<FilesMatch "\.(json)$">
+    Order deny,allow
+    Deny from all
+</FilesMatch>
 
 # Security headers
 <IfModule mod_headers.c>
