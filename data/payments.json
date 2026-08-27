@@ -1,0 +1,5 @@
+[
+    {"name": "Juan", "food": "Chicken Joy, burger, cheesecake",  "amount": 500},
+    {"name": "Maria", "food": "Chicken Joy, burger, cheesecake", "amount": 300},
+    {"name": "Pedro", "food": "Chicken Joy, burger, cheesecake", "amount": 750}
+]
