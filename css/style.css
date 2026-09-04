@@ -138,6 +138,7 @@ th, td {
     text-align: left;
     border-bottom: 1px solid #e0d6cc;
     font-size: 0.85rem;
+    overflow: hidden;
 }
 
 th {
@@ -180,6 +181,7 @@ tbody tr:last-child td {
 }
 
 .inline-upload input[type="file"] {
+    max-width: 100%;
     font-size: 0.8rem;
     color: #555;
 }
