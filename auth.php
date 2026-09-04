@@ -4,7 +4,7 @@ session_start();
 // To change the password, generate a new hash:
 //   php -r "echo password_hash('your-new-password', PASSWORD_DEFAULT);"
 // Then replace the hash below.
-$ADMIN_PASSWORD_HASH = '$2y$10$2hu1kUby91devmoKyUaxAuOKd.fCPb6BqvjVRuk5bafQdo0hzNC1G';
+$ADMIN_PASSWORD_HASH = '$2y$10$RTr.Lhzc55uUVWbXPgmoUO.ltOJ0iNMc4WbKA3b0fy2i.qY0E4NpS';
 
 function is_logged_in(): bool {
     return !empty($_SESSION['admin']);
