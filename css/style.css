@@ -177,13 +177,17 @@ tbody tr:last-child td {
 .inline-upload {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
 }
 
 .inline-upload input[type="file"] {
+    width: 100%;
     max-width: 100%;
     font-size: 0.8rem;
     color: #555;
+    box-sizing: border-box;
+    word-break: break-all;
+    overflow-wrap: break-word;
 }
 
 .inline-upload button {
@@ -467,7 +471,7 @@ tbody tr:last-child td {
     .inline-upload {
         flex-direction: column;
         align-items: stretch;
-        gap: 8px;
+        gap: 10px;
     }
 
     .inline-upload input[type="file"] {
