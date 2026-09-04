@@ -1,5 +1,12 @@
 [
-    {"name": "Juan", "food": "Chicken Joy, burger, cheesecake",  "amount": 500},
-    {"name": "Maria", "food": "Chicken Joy, burger, cheesecake", "amount": 300},
-    {"name": "Pedro", "food": "Chicken Joy, burger, cheesecake", "amount": 750}
+  {"name": "Faith", "food": "Mushroom pepper pork w/ egg", "amount": 99},
+  {"name": "Neil R", "food": "Mushroom pepper pork w/ egg, Chaofan w/ lumpia & siomai", "amount": 189},
+  {"name": "Ann", "food": "Mushroom pepper pork w/ egg, Chaofan w/ lumpia & siomai", "amount": 189},
+  {"name": "Louie", "food": "Chaofan w/ lumpia & siomai", "amount": 90},
+  {"name": "Adam", "food": "Chaofan w/ lumpia & siomai (no mayo)", "amount": 90},
+  {"name": "Precious", "food": "Mushroom pepper pork w/ egg", "amount": 99},
+  {"name": "Mani", "food": "Mushroom pepper pork w/ egg", "amount": 99},
+  {"name": "Nielbert", "food": "Chaofan w/ lumpia & siomai", "amount": 90},
+  {"name": "Rafael", "food": "Mushroom pepper pork w/ egg, Chaofan w/ lumpia & siomai", "amount": 189},
+  {"name": "Boss", "food": "Chaofan w/ lumpia & siomai", "amount": 90}
 ]
