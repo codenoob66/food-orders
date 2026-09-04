@@ -158,6 +158,51 @@ tbody tr:last-child td {
     border-bottom: none;
 }
 
+/* Test Page - Inline Upload Table */
+.test-page .table-card {
+    max-width: 720px;
+}
+
+.table-subtitle {
+    color: #555;
+    font-size: 0.85rem;
+    text-align: center;
+    margin-bottom: 16px;
+    line-height: 1.4;
+}
+
+.inline-upload {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.inline-upload input[type="file"] {
+    font-size: 0.8rem;
+    color: #555;
+}
+
+.inline-upload button {
+    padding: 8px 14px;
+    background-color: #1a1a1a;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+}
+
+.inline-upload button:hover {
+    background-color: #333;
+}
+
+.inline-upload button:active {
+    transform: scale(0.97);
+}
+
 /* Empty State */
 .empty-state {
     background-color: #1e1e1e;
@@ -300,6 +345,13 @@ tbody tr:last-child td {
     border-color: #e74c3c;
 }
 
+/* Tablet */
+@media (max-width: 768px) {
+    .test-page .table-card {
+        max-width: 100%;
+    }
+}
+
 /* Mobile */
 @media (max-width: 480px) {
     body {
@@ -337,5 +389,79 @@ tbody tr:last-child td {
 
     #upload-button {
         padding: 14px;
+    }
+
+    /* Test Page Mobile - Card Layout */
+    .test-page .table-card {
+        max-width: 100%;
+        padding: 16px 12px;
+    }
+
+    .table-subtitle {
+        font-size: 0.8rem;
+        margin-bottom: 12px;
+    }
+
+    .test-page thead {
+        display: none;
+    }
+
+    .test-page table,
+    .test-page tbody,
+    .test-page tr,
+    .test-page td {
+        display: block;
+        width: 100%;
+    }
+
+    .test-page tbody tr {
+        background-color: #f9f4ed;
+        border-radius: 10px;
+        padding: 14px;
+        margin-bottom: 12px;
+    }
+
+    .test-page tbody tr:last-child {
+        margin-bottom: 0;
+    }
+
+    .test-page td {
+        padding: 4px 0;
+        border-bottom: none;
+        font-size: 0.85rem;
+    }
+
+    .test-page td::before {
+        content: attr(data-label);
+        display: block;
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #888;
+        margin-bottom: 2px;
+    }
+
+    .test-page td:last-child {
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 1px solid #e0d6cc;
+    }
+
+    .inline-upload {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+    }
+
+    .inline-upload input[type="file"] {
+        max-width: 100%;
+        font-size: 0.8rem;
+    }
+
+    .inline-upload button {
+        width: 100%;
+        padding: 12px;
+        font-size: 0.85rem;
     }
 }

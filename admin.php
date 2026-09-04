@@ -37,6 +37,7 @@ $uploads = array_reverse($uploads); // newest first
                     </div>
                     <div class="upload-info">
                         <span class="upload-name"><?= htmlspecialchars($upload['name']) ?></span>
+
                         <span class="upload-date"><?= htmlspecialchars($upload['uploaded_at']) ?></span>
                     </div>
                     <form method="POST" action="delete.php" onsubmit="return confirm('Delete this upload?')">

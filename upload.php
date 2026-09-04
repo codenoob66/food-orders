@@ -50,14 +50,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // 8. Move the uploaded file
     if (move_uploaded_file($_FILES['myFile']['tmp_name'], $targetFile)) {
-        // 9. Log the upload to JSON
-        $uploads = file_exists($uploadsLog) ? json_decode(file_get_contents($uploadsLog), true) : [];
+        // 9. Log the upload to JSON (with file lock to prevent race conditions)
+        $fp = fopen($uploadsLog, 'c');
+        flock($fp, LOCK_EX);
+        $uploads = filesize($uploadsLog) > 0 ? json_decode(file_get_contents($uploadsLog), true) : [];
         $uploads[] = [
             'name' => $user,
             'filename' => $newFileName,
             'uploaded_at' => date('Y-m-d H:i:s')
         ];
-        file_put_contents($uploadsLog, json_encode($uploads, JSON_PRETTY_PRINT));
+        ftruncate($fp, 0);
+        rewind($fp);
+        fwrite($fp, json_encode($uploads, JSON_PRETTY_PRINT));
+        flock($fp, LOCK_UN);
+        fclose($fp);
 
         $status = 'success';
         $message = "Thank you for paying, {$user}!";
