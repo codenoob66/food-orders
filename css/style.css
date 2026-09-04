@@ -59,7 +59,8 @@ label {
     margin-bottom: -12px;
 }
 
-input[type="text"] {
+input[type="text"],
+input[type="password"] {
     padding: 10px 12px;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -68,7 +69,8 @@ input[type="text"] {
     transition: border-color 0.2s;
 }
 
-input[type="text"]:focus {
+input[type="text"]:focus,
+input[type="password"]:focus {
     border-color: #555;
 }
 
@@ -191,6 +193,7 @@ tbody tr:last-child td {
     font-size: 0.8rem;
     font-weight: 500;
     cursor: pointer;
+    touch-action: manipulation;
     transition: background-color 0.2s;
     white-space: nowrap;
 }
@@ -306,6 +309,7 @@ tbody tr:last-child td {
     font-weight: 500;
     letter-spacing: 0.3px;
     cursor: pointer;
+    touch-action: manipulation;
     transition: background-color 0.2s, border-color 0.2s, color 0.2s;
 }
 
@@ -313,6 +317,10 @@ tbody tr:last-child td {
     background-color: #2a1010;
     border-color: #e74c3c;
     color: #ff6b6b;
+}
+
+.delete-btn:active {
+    transform: scale(0.97);
 }
 
 .upload-name {
@@ -337,6 +345,8 @@ tbody tr:last-child td {
     border-radius: 8px;
     font-size: 0.8rem;
     font-weight: 500;
+    white-space: nowrap;
+    touch-action: manipulation;
     transition: background-color 0.2s, border-color 0.2s;
 }
 
@@ -347,6 +357,10 @@ tbody tr:last-child td {
 
 /* Tablet */
 @media (max-width: 768px) {
+    body {
+        padding: 0 16px;
+    }
+
     .test-page .table-card {
         max-width: 100%;
     }
